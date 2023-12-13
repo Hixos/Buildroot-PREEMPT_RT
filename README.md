@@ -1,6 +1,8 @@
-# Raspberry PI 2B PREEMPT_RT
+# Buildroot PREEMPT_RT
 
 ## Usage
+### Available configs
+- `rpi_2b_rt_defconfig`
 
 ### Initial configuration
 From the buildroot directory:
