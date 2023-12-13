@@ -1,0 +1,48 @@
+/dts-v1/;
+/plugin/;
+
+/ {
+	compatible = "brcm,bcm2836";
+	fragment@0 {
+		target-path = "/";
+		__overlay__ {
+			gpiotest {
+				compatible = "hxdrone,gpiotest";
+				status = "okay";
+                my_label = "hello_dts";
+				yellow-led-gpios = <&gpio 17 0>; 
+				button-gpios = <&gpio 27 0>; 
+			};
+		};
+	};
+
+	fragment@1 {
+        target = <&spidev0>;
+        __overlay__ {
+			status = "disabled";
+		};
+    };
+
+	fragment@2 {
+        target = <&spidev1>;
+        __overlay__ {
+			status = "disabled";
+		};
+    };
+
+	fragment@3 {
+        target = <&spi0>;
+        __overlay__ {
+			#address-cells = <1>;
+			#size-cells = <0>;
+			myspi_mxhat: myspi_mxhat@0{
+				compatible = "hxdrone,myspi_mxhat";
+				reg = <0>;	/* CE0 */
+				#address-cells = <1>;
+				#size-cells = <0>;
+				spi-max-frequency = <2000000>;
+			};
+
+		};
+    };
+};
