@@ -1,0 +1,6 @@
+#!/bin/bash
+
+mkdir -p /sys/kernel/config
+mount -t configfs none /sys/kernel/config
+mkdir -p /sys/kernel/config/device-tree/overlays/$1
+cat $1.dtbo > /sys/kernel/config/device-tree/overlays/$1/dtbo
