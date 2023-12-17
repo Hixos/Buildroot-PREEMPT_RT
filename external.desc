@@ -1,2 +1,2 @@
-name: rpi_2b_rt
-desc: Raspberry PI 2B PREEMPT_RT
+name: rpi_rt
+desc: Buildroot with realtime patch for Raspberry PIs
